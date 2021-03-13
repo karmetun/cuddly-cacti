@@ -2,30 +2,39 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.Serialization;
 
 [RequireComponent(typeof(Rigidbody2D))]
 public class Player : MonoBehaviour {
     public float WalkSpeed;
     public float JumpForce;
+    public float JetForce;
     public AnimationClip _walk, _jump;
     public Animation _Legs;
     public Transform _Blade, _GroundCast;
     public Camera cam;
     public bool mirror;
+    public float JetFuel;
+    public float JetFuelConsumptionModifier = 1.0f;
+    public float JetPowerModifier = 1.0f;
+    public float InAirMod = 1.0f;
 
 
-    private bool _canJump, _canWalk;
-    private bool _isWalk, _isJump;
+
+    private bool _canJump, _canWalk, _canJet;
+    private bool _isWalk, _isJump, _isJet;
     private float rot, _startScale;
     private Rigidbody2D rig;
     private Vector2 _inputAxis;
     private RaycastHit2D _hit;
+    private float _jetFuelMax = 1.0f;
 
 	void Start ()
     {
         rig = gameObject.GetComponent<Rigidbody2D>();
         _startScale = transform.localScale.x;
-	}
+        JetFuel = _jetFuelMax;
+    }
 
     void Update()
     {
@@ -35,6 +44,7 @@ public class Player : MonoBehaviour {
             {
                 _canJump = true;
                 _canWalk = true;
+                JetFuel = _jetFuelMax;
             }
         }
         else _canJump = false;
@@ -45,6 +55,20 @@ public class Player : MonoBehaviour {
             _canWalk = false;
             _isJump = true;
         }
+
+        //Can jet if we have jumped
+        _canJet = !_canJump;
+
+        //Burns fuel while jetting
+        if (_isJet)
+        {
+            JetFuel -= Time.deltaTime * JetFuelConsumptionModifier;
+        }
+        
+        //Jets while pressing space
+        //Change to microphone and change values of modifiers
+        _isJet = _canJet && Input.GetKey(KeyCode.Space);
+
     }
 
     void FixedUpdate()
@@ -72,7 +96,12 @@ public class Player : MonoBehaviour {
 
         if (_inputAxis.x != 0)
         {
-            rig.velocity = new Vector2(_inputAxis.x * WalkSpeed * Time.deltaTime, rig.velocity.y);
+            if(_canJump)
+                rig.velocity = new Vector2(_inputAxis.x * WalkSpeed * Time.deltaTime, rig.velocity.y);
+            else
+            {
+                rig.AddForce(new Vector2(_inputAxis.x * InAirMod, 0));
+            }
 
             if (_canWalk)
             {
@@ -81,7 +110,7 @@ public class Player : MonoBehaviour {
             }
         }
 
-        else
+        else if(_canJump)
         {
             rig.velocity = new Vector2(0, rig.velocity.y);
         }
@@ -93,6 +122,12 @@ public class Player : MonoBehaviour {
             _Legs.Play();
             _canJump = false;
             _isJump = false;
+        }
+
+        //Jetpack force based on modifier
+        if (_isJet && JetFuel >= 0)
+        {
+            rig.AddForce(new Vector2(0, JetForce * JetPowerModifier));
         }
     }
 
