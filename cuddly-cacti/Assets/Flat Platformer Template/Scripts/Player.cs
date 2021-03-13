@@ -15,6 +15,7 @@ public class Player : MonoBehaviour
     public Transform _Blade, _GroundCast;
     public Camera cam;
     public MicInput micInput;
+    public Splatter splatter;
     public bool mirror;
     public float JetFuel;
     public float JetFuelConsumptionModifier = 1.0f;
@@ -37,6 +38,8 @@ public class Player : MonoBehaviour
 
     void Start()
     {
+        splatter.splatColor = new Color32(138,43,226,255);
+        splatter.randomColor = false;
         rig = gameObject.GetComponent<Rigidbody2D>();
         _startScale = transform.localScale.x;
         JetFuel = _jetFuelMax;
@@ -163,10 +166,13 @@ public class Player : MonoBehaviour
 
         switch (other.tag)
         {
-            case "Death": HandleDeath();
+            case "Surface": 
+                Splatter splatterObj = (Splatter)Instantiate(splatter, other.transform.position, Quaternion.identity);
+                HandleDeath();
                 break;
             case "Checkpoint": HandleCheckPoint(other);
                 break;
+                        handleDeath();
         }
     }
 
@@ -184,5 +190,7 @@ public class Player : MonoBehaviour
         rig.velocity = new Vector2(0, 0);
 
     }
+    
+
 }
 
