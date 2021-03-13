@@ -4800,12 +4800,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 628aa1da3b0e9bd42936e033c58f35f5, type: 3}
---- !u!4 &1541582227 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 4442738796088442, guid: ed18ae643e6150e48a215de290a44235,
-    type: 3}
-  m_PrefabInstance: {fileID: 2056524766}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1557019455
 GameObject:
   m_ObjectHideFlags: 0
@@ -6423,7 +6417,7 @@ PrefabInstance:
     - target: {fileID: 114210957743276982, guid: ed18ae643e6150e48a215de290a44235,
         type: 3}
       propertyPath: JetForce
-      value: 50000
+      value: 1000
       objectReference: {fileID: 0}
     - target: {fileID: 114210957743276982, guid: ed18ae643e6150e48a215de290a44235,
         type: 3}
