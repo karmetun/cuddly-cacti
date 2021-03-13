@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 4947441607714812583}
   m_Layer: 0
   m_Name: Floor 1
-  m_TagString: Death
+  m_TagString: Surface
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

@@ -2225,7 +2225,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damping: 0.9
-  _target: {fileID: 0}
+  _target: {fileID: 1595232758}
   offset: {x: 9, y: 7}
 --- !u!114 &742416280
 MonoBehaviour:
@@ -5234,6 +5234,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   testSound: 0
+--- !u!4 &1595232758 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4110779522632870, guid: ed18ae643e6150e48a215de290a44235,
+    type: 3}
+  m_PrefabInstance: {fileID: 2056524766}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1601702720
 GameObject:
   m_ObjectHideFlags: 0
@@ -6431,7 +6437,7 @@ PrefabInstance:
     - target: {fileID: 114210957743276982, guid: ed18ae643e6150e48a215de290a44235,
         type: 3}
       propertyPath: JetForce
-      value: 50
+      value: 50000
       objectReference: {fileID: 0}
     - target: {fileID: 114210957743276982, guid: ed18ae643e6150e48a215de290a44235,
         type: 3}

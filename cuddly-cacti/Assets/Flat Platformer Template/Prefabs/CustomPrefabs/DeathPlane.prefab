@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 8397814664878012163}
   m_Layer: 0
   m_Name: Floor 1
-  m_TagString: Death
+  m_TagString: Surface
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -120,7 +120,7 @@ GameObject:
   - component: {fileID: 8397814665123065271}
   m_Layer: 0
   m_Name: DeathPlane
-  m_TagString: Death
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
