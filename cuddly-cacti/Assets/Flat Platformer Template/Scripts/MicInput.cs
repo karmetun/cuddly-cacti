@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using System.Collections;
 
@@ -81,5 +82,5 @@ public class MicInput : MonoBehaviour{
       _isInitialized = false;
     }
   }
-
+  
 }
