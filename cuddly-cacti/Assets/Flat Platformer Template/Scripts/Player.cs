@@ -47,7 +47,7 @@ public class Player : MonoBehaviour
         if (_hit = Physics2D.Linecast(new Vector2(_GroundCast.position.x, _GroundCast.position.y + 0.2f),
             _GroundCast.position))
         {
-            if (!_hit.transform.CompareTag("Player"))
+            if (!_hit.collider.gameObject.layer.Equals(6) && !_hit.transform.CompareTag("Player"))
             {
                 _canJump = true;
                 _canWalk = true;
@@ -160,18 +160,28 @@ public class Player : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        print(other.tag);
-        if (other.tag == "Death")
+
+        switch (other.tag)
         {
-            
-            handleDeath();
+            case "Death": HandleDeath();
+                break;
+            case "Checkpoint": HandleCheckPoint(other);
+                break;
         }
     }
 
-    private void handleDeath()
+    private void HandleCheckPoint(Collider2D other)
+    {
+        var center = other.bounds.center;
+        respawnPos.x = center.x;
+        respawnPos.y = center.y;
+    }
+
+    private void HandleDeath()
     {
         rig.position = respawnPos;
         deathCount++;
+        rig.velocity = new Vector2(0, 0);
 
     }
 }
