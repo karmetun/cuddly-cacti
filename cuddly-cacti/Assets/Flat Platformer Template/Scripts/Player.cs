@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -14,6 +14,7 @@ public class Player : MonoBehaviour
     public Animation _Legs;
     public Transform _Blade, _GroundCast;
     public Camera cam;
+    public MicInput micInput;
     public bool mirror;
     public float JetFuel;
     public float JetFuelConsumptionModifier = 1.0f;
@@ -73,8 +74,12 @@ public class Player : MonoBehaviour
 
         //Jets while pressing space
         //Change to microphone and change values of modifiers
-        _isJet = _canJet && Input.GetKey(KeyCode.Space);
-
+        var micLoudness = micInput.getMicLoudness();
+        if (micLoudness > 0.0001)
+        {
+            _isJet = _canJet;
+            JetPowerModifier = 10 * micLoudness;
+        }
     }
 
     void FixedUpdate()

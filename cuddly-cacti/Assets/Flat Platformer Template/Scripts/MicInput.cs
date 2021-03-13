@@ -4,7 +4,7 @@ using System.Collections;
 public class MicInput : MonoBehaviour{
 
   public float testSound;
-  public static float MicLoudness;
+  private static float _micLoudness;
   private string _device;
   private AudioClip _clipRecord;
   private int _sampleWindow = 128;
@@ -18,6 +18,10 @@ public class MicInput : MonoBehaviour{
       Debug.Log (_clipRecord); }
   }
 
+  public float getMicLoudness()
+  {
+    return _micLoudness;
+  }
   void StopMicrophone()
   {
     Microphone.End (_device);
@@ -43,9 +47,8 @@ public class MicInput : MonoBehaviour{
 
   void Update()
   { 
-    MicLoudness = LevelMax ();
-    testSound = 10 * MicLoudness;
-    gameObject.transform.position += new Vector3(0, MicLoudness, 0);
+    _micLoudness = LevelMax ();
+    testSound = _micLoudness;
   }
 
   void OnEnable()
