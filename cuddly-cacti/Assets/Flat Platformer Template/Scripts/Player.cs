@@ -78,7 +78,12 @@ public class Player : MonoBehaviour
         if (micLoudness > 0.0001)
         {
             _isJet = _canJet;
-            JetPowerModifier = 10 * micLoudness;
+            JetPowerModifier = micLoudness;
+            JetFuelConsumptionModifier = micLoudness;
+        }
+        else
+        {
+            _isJet = false;
         }
     }
 
