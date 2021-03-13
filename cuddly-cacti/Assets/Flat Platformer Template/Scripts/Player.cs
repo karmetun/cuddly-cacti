@@ -15,7 +15,6 @@ public class Player : MonoBehaviour
     public Transform _Blade, _GroundCast;
     public Camera cam;
     public MicInput micInput;
-    public Texture2D texture;
     public Splatter splatter;
     public bool mirror;
     public float JetFuel;
