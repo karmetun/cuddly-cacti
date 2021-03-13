@@ -172,7 +172,6 @@ public class Player : MonoBehaviour
                 break;
             case "Checkpoint": HandleCheckPoint(other);
                 break;
-                        handleDeath();
         }
     }
 
