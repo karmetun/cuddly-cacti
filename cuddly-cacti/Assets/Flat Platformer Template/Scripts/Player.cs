@@ -24,6 +24,8 @@ public class Player : MonoBehaviour
     public Vector2 respawnPos = new Vector2(5.9f, -40.9f);
     public int deathCount = 0;
 
+    public ParticleSystem ps;
+
 
 
     private bool _canJump, _canWalk, _canJet;
@@ -38,8 +40,10 @@ public class Player : MonoBehaviour
     void Start()
     {
         rig = gameObject.GetComponent<Rigidbody2D>();
+        ps = gameObject.GetComponent<ParticleSystem>();
         _startScale = transform.localScale.x;
         JetFuel = _jetFuelMax;
+        
     }
 
     void Update()
@@ -70,6 +74,8 @@ public class Player : MonoBehaviour
         if (_isJet)
         {
             JetFuel -= Time.deltaTime * JetFuelConsumptionModifier;
+            ps.Play();
+
         }
 
         //Jets while pressing space
@@ -84,6 +90,7 @@ public class Player : MonoBehaviour
         else
         {
             _isJet = false;
+            ps.Stop();
         }
     }
 
@@ -145,6 +152,11 @@ public class Player : MonoBehaviour
         if (_isJet && JetFuel >= 0)
         {
             rig.AddForce(new Vector2(0, JetForce * JetPowerModifier));
+            ps.Play();
+        }
+        else
+        {
+            ps.Stop();
         }
     }
 
