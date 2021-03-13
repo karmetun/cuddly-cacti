@@ -2206,7 +2206,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 742416273}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -23.331312, y: -33.99236, z: -10}
+  m_LocalPosition: {x: 5.26, y: -33.99236, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -2225,7 +2225,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damping: 0.9
-  _target: {fileID: 0}
+  _target: {fileID: 1541582227}
   offset: {x: 9, y: 7}
 --- !u!114 &742416280
 MonoBehaviour:
@@ -4852,6 +4852,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 628aa1da3b0e9bd42936e033c58f35f5, type: 3}
+--- !u!4 &1541582227 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4442738796088442, guid: ed18ae643e6150e48a215de290a44235,
+    type: 3}
+  m_PrefabInstance: {fileID: 2056524766}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1557019455
 GameObject:
   m_ObjectHideFlags: 0
@@ -6340,9 +6346,41 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1040573777053872, guid: ed18ae643e6150e48a215de290a44235, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 1075036322599242, guid: ed18ae643e6150e48a215de290a44235, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 1538190971569420, guid: ed18ae643e6150e48a215de290a44235, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 1757164026212886, guid: ed18ae643e6150e48a215de290a44235, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 1793460428808898, guid: ed18ae643e6150e48a215de290a44235, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 1793460428808898, guid: ed18ae643e6150e48a215de290a44235, type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1862736871403280, guid: ed18ae643e6150e48a215de290a44235, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 1955737573472398, guid: ed18ae643e6150e48a215de290a44235, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 1971403698182764, guid: ed18ae643e6150e48a215de290a44235, type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 4110779522632870, guid: ed18ae643e6150e48a215de290a44235, type: 3}
       propertyPath: m_RootOrder
@@ -6840,7 +6878,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4734704770202062}
   - component: {fileID: 1217655165}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Cart
   m_TagString: Death
   m_Icon: {fileID: 0}
@@ -7079,7 +7117,7 @@ GameObject:
   - component: {fileID: 4080280617529890}
   - component: {fileID: 212327113937924718}
   - component: {fileID: 1413792914}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Cart_0
   m_TagString: Death
   m_Icon: {fileID: 0}
