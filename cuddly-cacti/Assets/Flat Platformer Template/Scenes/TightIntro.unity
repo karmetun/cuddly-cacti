@@ -608,7 +608,7 @@ PrefabInstance:
     - target: {fileID: 4998451795452311010, guid: 22c8a672bf49dd34db7cefc854ded689,
         type: 3}
       propertyPath: m_RootOrder
-      value: 7
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 4998451795452311010, guid: 22c8a672bf49dd34db7cefc854ded689,
         type: 3}
@@ -1646,7 +1646,6 @@ GameObject:
   - component: {fileID: 1149584366}
   - component: {fileID: 1149584365}
   - component: {fileID: 1149584364}
-  - component: {fileID: 1149584363}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -1654,26 +1653,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1149584363
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1149584362}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 46a3f4f71d419394dbe20f906a38ef37, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  parallaxMode: 0
-  _backGrounds:
-  - _backGround: {fileID: 0}
-    _damping: 5
-  - _backGround: {fileID: 0}
-    _damping: 30
-  - _backGround: {fileID: 0}
-    _damping: 35
 --- !u!114 &1149584364
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1687,7 +1666,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damping: 20
-  _target: {fileID: 0}
+  _target: {fileID: 594495887}
   offset: {x: 0, y: 0}
 --- !u!81 &1149584365
 AudioListener:
