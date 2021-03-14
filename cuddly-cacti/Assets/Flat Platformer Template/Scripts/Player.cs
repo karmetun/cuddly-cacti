@@ -2,6 +2,7 @@ using UnityEngine;
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.SceneManagement;
 using UnityEngine.Serialization;
 using UnityEngine.UI;
 
@@ -214,6 +215,20 @@ public class Player : MonoBehaviour
                 break;
             case "Checkpoint": HandleCheckPoint(other);
                 break;
+            case "Finish": HandleFinish();
+                break;
+        }
+    }
+
+    private void HandleFinish()
+    {
+        if (SceneManager.sceneCountInBuildSettings < SceneManager.GetActiveScene().buildIndex + 1)
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        }
+        else
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
         }
     }
 
