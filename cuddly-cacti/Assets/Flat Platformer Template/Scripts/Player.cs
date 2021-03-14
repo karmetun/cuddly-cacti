@@ -235,7 +235,7 @@ public class Player : MonoBehaviour
         deathCount++;
         rig.velocity = new Vector2(0, 0);
         if(DeathText)
-            DeathText.text = "Deaths: ~" + deathCount.ToString();
+            DeathText.text = "Deaths: " + deathCount.ToString();
         
         if(death)
             death.PlayOneShot(death.clip, 1.0f);
