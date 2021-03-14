@@ -222,7 +222,7 @@ public class Player : MonoBehaviour
 
     private void HandleFinish()
     {
-        if (SceneManager.sceneCountInBuildSettings < SceneManager.GetActiveScene().buildIndex + 1)
+        if (SceneManager.sceneCountInBuildSettings <= SceneManager.GetActiveScene().buildIndex + 1)
         {
             SceneManager.LoadScene(0);
         }
