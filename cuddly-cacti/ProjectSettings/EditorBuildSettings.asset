@@ -12,6 +12,9 @@ EditorBuildSettings:
     path: Assets/Flat Platformer Template/Scenes/FirstStage.unity
     guid: b55f1359c8db6cd47b9591571f36ca51
   - enabled: 1
+    path: Assets/Flat Platformer Template/Scenes/TightIntro.unity
+    guid: 4e0e49cd7d452b04e8bdd74b340a6f16
+  - enabled: 1
     path: Assets/Flat Platformer Template/Scenes/TightStage.unity
     guid: efce4f8d75fa6ca438e9938f83c18c1d
   - enabled: 1
