@@ -1745,7 +1745,7 @@ PrefabInstance:
     - target: {fileID: 114210957743276982, guid: ed18ae643e6150e48a215de290a44235,
         type: 3}
       propertyPath: JetForce
-      value: 100
+      value: 50000
       objectReference: {fileID: 0}
     - target: {fileID: 114210957743276982, guid: ed18ae643e6150e48a215de290a44235,
         type: 3}
