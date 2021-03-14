@@ -197,12 +197,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0320fe8a68d323f41bbb79c88f19bdfa, type: 3}
---- !u!4 &37242713 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 7037642037030010382, guid: 0734a609e53443740bb83227117054ea,
-    type: 3}
-  m_PrefabInstance: {fileID: 1987475755}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &57662447
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1448,7 +1442,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damping: 20
-  _target: {fileID: 37242713}
+  _target: {fileID: 0}
   offset: {x: 0, y: 0}
 --- !u!81 &1149584365
 AudioListener:
