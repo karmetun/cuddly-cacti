@@ -396,7 +396,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   WalkSpeed: 500
   JumpForce: 200
-  JetForce: 100
+  JetForce: 1000
   _walk: {fileID: 7400000, guid: cf7febd7a6068ce4482c0d1d30c6ad12, type: 2}
   _jump: {fileID: 7400000, guid: 48a9bc6d93ac6fd4d8753274e629bd83, type: 2}
   _Wings: {fileID: 1451796465790028476}
