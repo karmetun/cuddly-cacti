@@ -22,7 +22,7 @@ public class Player : MonoBehaviour
     public float JetPowerModifier = 1.0f;
     public float InAirMod = 20.0f;
     
-    public Vector2 respawnPos = new Vector2(5.9f, -40.9f);
+    public Vector2 respawnPos;
     public int deathCount = 0;
 
 
@@ -43,6 +43,7 @@ public class Player : MonoBehaviour
         rig = gameObject.GetComponent<Rigidbody2D>();
         _startScale = transform.localScale.x;
         JetFuel = _jetFuelMax;
+        respawnPos = rig.position;
     }
 
     void Update()
