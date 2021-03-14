@@ -2674,6 +2674,11 @@ PrefabInstance:
       objectReference: {fileID: 1713992155}
     - target: {fileID: 114210957743276982, guid: ed18ae643e6150e48a215de290a44235,
         type: 3}
+      propertyPath: JetFuelText
+      value: 
+      objectReference: {fileID: 1395993302}
+    - target: {fileID: 114210957743276982, guid: ed18ae643e6150e48a215de290a44235,
+        type: 3}
       propertyPath: respawnPos.x
       value: 9.770004
       objectReference: {fileID: 0}
