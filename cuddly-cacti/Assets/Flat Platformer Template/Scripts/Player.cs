@@ -224,7 +224,7 @@ public class Player : MonoBehaviour
     {
         if (SceneManager.sceneCountInBuildSettings < SceneManager.GetActiveScene().buildIndex + 1)
         {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+            SceneManager.LoadScene(0);
         }
         else
         {
