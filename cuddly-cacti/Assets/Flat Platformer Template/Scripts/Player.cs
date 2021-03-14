@@ -11,8 +11,10 @@ public class Player : MonoBehaviour
     public float JumpForce;
     public float JetForce;
     public AnimationClip _walk, _jump;
-    public Animation _Legs;
-    public Transform _Blade, _GroundCast;
+    public Animator _Wings;
+    public Animator _Jet;
+    public Transform  _GroundCast;
+    //public Transform _Blade, _GroundCast;
     public Camera cam;
     public MicInput micInput;
     public Splatter splatter;
@@ -69,6 +71,14 @@ public class Player : MonoBehaviour
 
         //Can jet if we have jumped
         _canJet = !_canJump;
+        if (_canJet)
+        {
+            _Wings.enabled = _canJet;
+        }
+        else
+        {
+            _Wings.PlayInFixedTime("flap", 0, 0.025f);
+        }
 
         //Burns fuel while jetting
         if (_isJet)
@@ -93,26 +103,26 @@ public class Player : MonoBehaviour
 
     void FixedUpdate()
     {
-        Vector3 dir = cam.ScreenToWorldPoint(Input.mousePosition) - _Blade.transform.position;
-        dir.Normalize();
+       // Vector3 dir = cam.ScreenToWorldPoint(Input.mousePosition) - _Blade.transform.position;
+        //dir.Normalize();
 
         if (cam.ScreenToWorldPoint(Input.mousePosition).x > transform.position.x + 0.2f)
             mirror = false;
         if (cam.ScreenToWorldPoint(Input.mousePosition).x < transform.position.x - 0.2f)
             mirror = true;
 
-        if (!mirror)
-        {
-            rot = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
-            transform.localScale = new Vector3(_startScale, _startScale, 1);
-            _Blade.transform.rotation = Quaternion.AngleAxis(rot, Vector3.forward);
-        }
-
         if (mirror)
         {
-            rot = Mathf.Atan2(-dir.y, -dir.x) * Mathf.Rad2Deg;
+           // rot = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
+            transform.localScale = new Vector3(_startScale, _startScale, 1);
+          //  _Blade.transform.rotation = Quaternion.AngleAxis(rot, Vector3.forward);
+        }
+
+        if (!mirror)
+        {
+           // rot = Mathf.Atan2(-dir.y, -dir.x) * Mathf.Rad2Deg;
             transform.localScale = new Vector3(-_startScale, _startScale, 1);
-            _Blade.transform.rotation = Quaternion.AngleAxis(rot, Vector3.forward);
+           // _Blade.transform.rotation = Quaternion.AngleAxis(rot, Vector3.forward);
         }
 
         if (_inputAxis.x != 0)
@@ -126,8 +136,8 @@ public class Player : MonoBehaviour
 
             if (_canWalk)
             {
-                _Legs.clip = _walk;
-                _Legs.Play();
+                //_Legs.clip = _walk;
+                //_Legs.Play();
             }
         }
 
@@ -139,8 +149,8 @@ public class Player : MonoBehaviour
         if (_isJump)
         {
             rig.AddForce(new Vector2(0, JumpForce));
-            _Legs.clip = _jump;
-            _Legs.Play();
+            //_Legs.clip = _jump;
+            //_Legs.Play();
             _canJump = false;
             _isJump = false;
         }
@@ -149,6 +159,13 @@ public class Player : MonoBehaviour
         if (_isJet && JetFuel >= 0)
         {
             rig.AddForce(new Vector2(0, JetForce * JetPowerModifier));
+            _Jet.enabled = true;
+            _Jet.Play("rocket");
+        }
+        else
+        {
+            _Jet.PlayInFixedTime("rocket", 0, 0.17f);
+            _Jet.enabled = false;
         }
     }
 
