@@ -31,6 +31,12 @@ public class Player : MonoBehaviour
     public Text DeathText;
     public Text JetFuelText;
 
+    public AudioSource jump;
+    public AudioSource death;
+    public AudioSource jetpack;
+    public AudioSource win;
+    
+
     private bool _canJump, _canWalk, _canJet;
     private bool _isWalk, _isJump, _isJet;
     private float rot, _startScale;
@@ -48,8 +54,11 @@ public class Player : MonoBehaviour
         _startScale = transform.localScale.x;
         JetFuel = _jetFuelMax;
         respawnPos = rig.position;
-        DeathText.text = "Deaths: " + deathCount.ToString();
-        JetFuelText.text = "Jet fuel: " + JetFuel.ToString();
+        if(DeathText)
+            DeathText.text = "Deaths: " + deathCount.ToString();
+        if(JetFuelText)
+            JetFuelText.text = "Jet fuel: " + JetFuel.ToString();
+
     }
 
     void Update()
@@ -88,6 +97,7 @@ public class Player : MonoBehaviour
         if (_isJet)
         {
             JetFuel -= Time.deltaTime * JetFuelConsumptionModifier;
+            if(JetFuelText)
             JetFuelText.text = "Jet fuel: " + JetFuel.ToString();
             
         }
@@ -159,6 +169,8 @@ public class Player : MonoBehaviour
             //_Legs.Play();
             _canJump = false;
             _isJump = false;
+            if(jump)
+                jump.PlayOneShot(jump.clip, 1.0f);
         }
 
         //Jetpack force based on modifier
@@ -167,6 +179,8 @@ public class Player : MonoBehaviour
             rig.AddForce(new Vector2(0, JetForce * JetPowerModifier));
             _Jet.enabled = true;
             _Jet.Play("jet");
+            if(jetpack)
+                jetpack.PlayOneShot(jetpack.clip, 0.5f);;
         }
         else
         {
@@ -204,6 +218,8 @@ public class Player : MonoBehaviour
         var center = other.bounds.center;
         respawnPos.x = center.x;
         respawnPos.y = center.y;
+        if(win)
+            win.PlayOneShot(win.clip, 1.0f);
     }
 
     private void HandleDeath()
@@ -211,7 +227,12 @@ public class Player : MonoBehaviour
         rig.position = respawnPos;
         deathCount++;
         rig.velocity = new Vector2(0, 0);
-        DeathText.text = "Deaths: ~" + deathCount.ToString();
+        if(DeathText)
+            DeathText.text = "Deaths: ~" + deathCount.ToString();
+        
+        if(death)
+            death.PlayOneShot(death.clip, 1.0f);
+        
     }
     
 
