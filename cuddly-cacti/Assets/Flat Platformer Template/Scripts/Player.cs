@@ -160,11 +160,11 @@ public class Player : MonoBehaviour
         {
             rig.AddForce(new Vector2(0, JetForce * JetPowerModifier));
             _Jet.enabled = true;
-            _Jet.Play("rocket");
+            _Jet.Play("jet");
         }
         else
         {
-            _Jet.PlayInFixedTime("rocket", 0, 0.17f);
+            _Jet.PlayInFixedTime("jet", 0, 0.0f);
             _Jet.enabled = false;
         }
     }

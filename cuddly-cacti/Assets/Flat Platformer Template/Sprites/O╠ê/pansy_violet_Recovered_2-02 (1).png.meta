@@ -1,7 +1,13 @@
 fileFormatVersion: 2
-guid: 9edefc8a445d5894ca6dff26b772a20d
+guid: 9b25725b5d032d74f8e390d89565150c
 TextureImporter:
-  internalIDToNameTable: []
+  internalIDToNameTable:
+  - first:
+      213: -6057166276028811928
+    second: pansy_violet_Recovered_2-02 (1)_0
+  - first:
+      213: 3786009477473452093
+    second: pansy_violet_Recovered_2-02 (1)_1
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -44,8 +50,8 @@ TextureImporter:
   spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
-  alignment: 9
-  spritePivot: {x: 0.15925923, y: 0.9108107}
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
   spritePixelsToUnits: 100
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
@@ -101,7 +107,49 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: pansy_violet_Recovered_2-02 (1)_0
+      rect:
+        serializedVersion: 2
+        x: 88
+        y: 183
+        width: 1281
+        height: 1847
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 865b3db3d5f90fba0800000000000000
+      internalID: -6057166276028811928
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pansy_violet_Recovered_2-02 (1)_1
+      rect:
+        serializedVersion: 2
+        x: 1987
+        y: 211
+        width: 1283
+        height: 1862
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d3041158f8b9a8430800000000000000
+      internalID: 3786009477473452093
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
