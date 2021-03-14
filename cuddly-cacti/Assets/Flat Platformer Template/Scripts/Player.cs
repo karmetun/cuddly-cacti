@@ -3,6 +3,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.Serialization;
+using UnityEngine.UI;
 
 [RequireComponent(typeof(Rigidbody2D))]
 public class Player : MonoBehaviour
@@ -27,7 +28,8 @@ public class Player : MonoBehaviour
     public Vector2 respawnPos;
     public int deathCount = 0;
 
-
+    public Text DeathText;
+    public Text JetFuelText;
 
     private bool _canJump, _canWalk, _canJet;
     private bool _isWalk, _isJump, _isJet;
@@ -46,6 +48,8 @@ public class Player : MonoBehaviour
         _startScale = transform.localScale.x;
         JetFuel = _jetFuelMax;
         respawnPos = rig.position;
+        DeathText.text = "Deaths: " + deathCount.ToString();
+        JetFuelText.text = "Jet fuel: " + JetFuel.ToString();
     }
 
     void Update()
@@ -84,6 +88,8 @@ public class Player : MonoBehaviour
         if (_isJet)
         {
             JetFuel -= Time.deltaTime * JetFuelConsumptionModifier;
+            JetFuelText.text = "Jet fuel: " + JetFuel.ToString();
+            
         }
 
         //Jets while pressing space
@@ -205,7 +211,7 @@ public class Player : MonoBehaviour
         rig.position = respawnPos;
         deathCount++;
         rig.velocity = new Vector2(0, 0);
-
+        DeathText.text = "Deaths: ~" + deathCount.ToString();
     }
     
 
