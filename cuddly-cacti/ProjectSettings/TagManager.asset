@@ -14,15 +14,15 @@ TagManager:
   - Fuel
   - ObjectFurnace
   - Death
-  - Checkpoint
+  - Surface
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - IgnorePhysics
   - Water
   - UI
-  - Triggers
+  - 
   - 
   - Player
   - Horse
