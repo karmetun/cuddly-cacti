@@ -38,6 +38,7 @@ public class Player : MonoBehaviour
     private Vector2 _inputAxis;
     private RaycastHit2D _hit;
     private float _jetFuelMax = 1.0f;
+    private float deathDelay;
     
 
     void Start()
@@ -87,9 +88,7 @@ public class Player : MonoBehaviour
         //Burns fuel while jetting
         if (_isJet)
         {
-            JetFuel -= Time.deltaTime * JetFuelConsumptionModifier;
-            JetFuelText.text = "Jet fuel: " + JetFuel.ToString();
-            
+            JetFuel -= Time.deltaTime * JetFuelConsumptionModifier;         
         }
 
         //Jets while pressing space
@@ -105,6 +104,9 @@ public class Player : MonoBehaviour
         {
             _isJet = false;
         }
+
+        JetFuelText.text = "Jet fuel: " + Math.Round(JetFuel,2).ToString();
+        deathDelay -= Time.deltaTime;
     }
 
     void FixedUpdate()
@@ -208,10 +210,15 @@ public class Player : MonoBehaviour
 
     private void HandleDeath()
     {
+        if(deathDelay > 0){
+            return;
+        }
         rig.position = respawnPos;
         deathCount++;
         rig.velocity = new Vector2(0, 0);
-        DeathText.text = "Deaths: ~" + deathCount.ToString();
+        DeathText.text = "Deaths: " + deathCount.ToString();
+        deathDelay = 0.2f;
+
     }
     
 
